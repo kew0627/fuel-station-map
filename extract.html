@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지역 데이터 추출 | 주유소 데이터 도구</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./regions.js"></script>
+  <script defer src="./data.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body class="workflow" data-page="extract">
+  <main class="shell">
+    <nav class="topbar" aria-label="페이지 이동"><a href="./index.html">메인으로 돌아가기</a></nav>
+    <header class="page-heading">
+      <h1>지역 데이터 추출</h1>
+      <p>두 CSV를 선택하고 지역별 자료를 각각 저장하세요.</p>
+    </header>
+    <section class="panel" aria-labelledby="files-title">
+      <h2 id="files-title">CSV 불러오기</h2>
+      <div class="fields">
+        <div><label for="stations">주유소 정보 CSV</label><input id="stations" type="file" accept=".csv,text/csv" aria-describedby="stations-note"><p id="stations-note" class="field-note" role="status"></p></div>
+        <div><label for="prices">판매가격 CSV</label><input id="prices" type="file" accept=".csv,text/csv" aria-describedby="prices-note"><p id="prices-note" class="field-note" role="status"></p></div>
+      </div>
+    </section>
+    <section class="panel" aria-labelledby="region-title">
+      <h2 id="region-title">지역 선택</h2>
+      <div class="fields">
+        <div><label for="province">시·도</label><select id="province" disabled></select></div>
+        <div><label for="district">시·군·구</label><select id="district" disabled></select></div>
+      </div>
+    </section>
+    <section class="panel panel-cream" aria-labelledby="result-title">
+      <h2 id="result-title">추출 결과</h2>
+      <p id="result" role="status">두 CSV를 불러온 뒤 지역을 선택하세요.</p>
+      <div class="actions">
+        <button id="save-stations" disabled>주유소 정보 CSV 저장</button>
+        <button id="save-prices" disabled>판매가격 CSV 저장</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

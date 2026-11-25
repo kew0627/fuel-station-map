@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>주유소 데이터 도구</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="home">
+  <main class="campaign">
+    <header class="hero">
+      <div class="hero-visual" aria-hidden="true">
+        <img src="./fuel-hero.webp" alt="" width="1100" height="733">
+      </div>
+      <div class="hero-copy">
+        <p class="brand">주유소 데이터 도구</p>
+        <h1><span>지역별 주유소와</span> <span>판매가격</span></h1>
+        <p>보유한 CSV로 지역 자료를 저장하거나<br class="hero-break"> 지도에서 주유소별 기록을 조회하세요.</p>
+      </div>
+    </header>
+    <nav class="menu-grid" aria-label="메인 메뉴">
+      <a class="menu-card" href="./extract.html" aria-labelledby="extract-title">
+        <div class="menu-card-top">
+          <div>
+            <h2 id="extract-title">지역 데이터 추출</h2>
+            <p>원하는 지역의 주유소 정보와 판매가격을 각각 CSV로 저장합니다.</p>
+          </div>
+          <div class="file-visual" aria-hidden="true">
+            <div class="mock-file"><span>CSV</span></div>
+            <div class="mock-file"><span>CSV</span></div>
+          </div>
+        </div>
+        <div class="menu-card-bottom"><span class="cta">추출하기</span></div>
+      </a>
+      <a class="menu-card menu-card-map" href="./map.html" aria-labelledby="map-menu-title">
+        <div class="menu-card-top">
+          <div>
+            <h2 id="map-menu-title">지도에서 주유가격 조회</h2>
+            <p>지역 지도에서 주유소를 선택해 날짜별 유종 가격을 조회합니다.</p>
+          </div>
+          <div class="map-visual" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+        <div class="menu-card-bottom"><span class="cta">지도 열기</span></div>
+      </a>
+    </nav>
+    <p class="local-note">인터넷 없이 사용할 수 있습니다. 선택한 파일은 브라우저에서 처리합니다.</p>
+  </main>
+</body>
+</html>

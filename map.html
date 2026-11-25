@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지도에서 주유가격 조회 | 주유소 데이터 도구</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./regions.js"></script>
+  <script defer src="./data.js"></script>
+  <script defer src="./map.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body class="workflow" data-page="map">
+  <main class="shell">
+    <nav class="topbar" aria-label="페이지 이동"><a href="./index.html">메인으로 돌아가기</a></nav>
+    <header class="page-heading">
+      <h1>지도에서 주유가격 조회</h1>
+      <p>주유소를 선택하면 업로드한 파일의 날짜별 판매가격을 볼 수 있습니다.</p>
+    </header>
+    <section class="panel" aria-labelledby="files-title">
+      <h2 id="files-title">CSV 불러오기</h2>
+      <div class="fields">
+        <div><label for="stations">주유소 정보 CSV</label><input id="stations" type="file" accept=".csv,text/csv" aria-describedby="stations-note"><p id="stations-note" class="field-note" role="status"></p></div>
+        <div><label for="prices">판매가격 CSV</label><input id="prices" type="file" accept=".csv,text/csv" aria-describedby="prices-note"><p id="prices-note" class="field-note" role="status"></p></div>
+      </div>
+      <div id="boundary-picker" hidden>
+        <label for="boundary">행정동 경계 파일</label>
+        <input id="boundary" type="file" accept=".geojson,.json" aria-describedby="boundary-note">
+      </div>
+      <p id="boundary-note" class="field-note" role="status"></p>
+    </section>
+    <section class="panel" aria-labelledby="region-title">
+      <h2 id="region-title">지역 선택</h2>
+      <div class="fields">
+        <div><label for="province">시·도</label><select id="province" disabled></select></div>
+        <div><label for="district">시·군·구</label><select id="district" disabled></select></div>
+      </div>
+      <p id="result" role="status">두 CSV를 불러온 뒤 지역을 선택하세요.</p>
+    </section>
+    <div class="map-grid">
+      <section class="panel map-panel" aria-labelledby="map-title">
+        <div class="map-heading">
+          <h2 id="map-title">지역 지도</h2>
+          <div class="actions map-controls" aria-label="지도 조작">
+            <button id="zoom-in" aria-label="지도 확대" disabled>+</button>
+            <button id="zoom-out" aria-label="지도 축소" disabled>−</button>
+            <button id="fit-map" disabled>지역 맞춤</button>
+          </div>
+        </div>
+        <div class="map-area">
+          <canvas id="map" aria-label="행정동 경계 및 주유소 위치 지도"></canvas>
+          <p id="map-empty">지역을 선택하면 지도가 표시됩니다.</p>
+        </div>
+      </section>
+      <section class="panel panel-cream" aria-labelledby="price-title">
+        <h2 id="price-title">주유소 판매가격</h2>
+        <label for="station">주유소</label>
+        <select id="station" disabled><option value="">지역을 먼저 선택하세요</option></select>
+        <div id="station-detail" aria-live="polite"></div>
+        <div id="date-field" hidden>
+          <label for="date">기록일</label>
+          <select id="date"></select>
+        </div>
+        <div id="price-detail" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
